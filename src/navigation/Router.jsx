@@ -6,8 +6,6 @@ import Employees from "../pages/Employees";
 
 import NotFound from "./NotFound";
 
-import Header from "../layout/Header";
-
 const routes = [
   {
     id: "home",
@@ -32,7 +30,6 @@ const routes = [
 const Router = () => {
   return (
     <BrowserRouter>
-      <Header />
       <Switch>
         {routes.map((route) => {
           return (
