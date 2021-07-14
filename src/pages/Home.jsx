@@ -6,7 +6,7 @@ import DatePicker from "../components/DatePicker";
 import Select from "../components/Select";
 import { departmentList, stateList } from "../constants";
 import SaveButton from "../components/SaveButton";
-import MagicModal from "../components/MagicModal";
+import MagicModal from "@raven0us/magic-react-modal";
 
 const Container = styled.div`
   display: flex;
