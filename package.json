@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.1.10",
     "antd": "^4.16.7",
     "moment": "^2.29.1",
+    "pm2": "^5.1.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-datepicker": "^4.1.1",
@@ -23,6 +24,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "start:production": "pm2 serve build 5000 --spa --watch --restart-delay=3000",
+    "kill:production": "pm2 kill",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
