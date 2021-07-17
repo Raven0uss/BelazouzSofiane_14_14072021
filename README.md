@@ -27,6 +27,7 @@ See the section about deployment for more information.
 ### `npm run start:production`
 
 Launch `pm2` to run the build and test the application as production.
+Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
 
 ### `npm run kill:production`
 
