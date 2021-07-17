@@ -1,25 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import styled from "styled-components";
+import PropTypes from "prop-types";
+
+import MagicModal from "@raven0us/magic-react-modal";
+
+import { addEmployee } from "../redux/actions/employees";
+import { departmentList, stateList } from "../constants";
+
 import Input from "../components/Input";
 import DatePicker from "../components/DatePicker";
 import Select from "../components/Select";
-import { departmentList, stateList } from "../constants";
 import SaveButton from "../components/SaveButton";
-import MagicModal from "@raven0us/magic-react-modal";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-bottom: 30px;
 `;
 
 const Form = styled.div`
+  display: flex;
+  flex-direction: column;
   max-width: 450px;
   width: 50%;
   margin-top: 8px;
   margin-bottom: 8px;
+  align-items: center;
 
   > div {
     margin-top: 12px;
@@ -29,9 +39,14 @@ const Form = styled.div`
 const AddressFieldset = styled.fieldset`
   margin-top: 10px;
   width: 250px;
+  background-color: #00000010;
+  padding: 20px;
+  border-radius: 5px;
 
-  > div {
-    margin-top: 12px;
+  > legend {
+    background-color: #ffffff;
+    padding: 0 12px;
+    border-radius: 5px;
   }
 
   @media (max-width: 400px) {
@@ -60,7 +75,7 @@ const formValuesInitialState = {
   department: departmentList[0],
 };
 
-const Home = () => {
+const Home = ({ onAddEmployee }) => {
   const [formValues, setFormValues] = React.useState(formValuesInitialState);
   const [openModal, setOpenModal] = React.useState(false);
 
@@ -75,6 +90,7 @@ const Home = () => {
     };
 
   const onSubmit = () => {
+    onAddEmployee(formValues);
     setOpenModal(true);
   };
 
@@ -154,4 +170,16 @@ const Home = () => {
   );
 };
 
-export default Home;
+const mapDispatchToProps = (dispatch) => ({
+  onAddEmployee: async (employee) => {
+    employee.department = employee.department.value;
+    employee.state = employee.state.value;
+    dispatch(addEmployee(employee));
+  },
+});
+
+Home.propTypes = {
+  onAddEmployee: PropTypes.func.isRequired,
+};
+
+export default connect(undefined, mapDispatchToProps)(Home);

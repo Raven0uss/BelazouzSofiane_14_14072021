@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 import ReactSelect from "react-select";
 
@@ -24,6 +25,22 @@ const Select = ({ label, options, value, onChange }) => {
       <ReactSelect options={options} value={value} onChange={onChange} />
     </SelectContainer>
   );
+};
+
+Select.propTypes = {
+  label: PropTypes.string,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.any,
+    }).isRequired
+  ).isRequired,
+  value: PropTypes.any.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
+
+Select.defaultProps = {
+  label: "",
 };
 
 export default Select;

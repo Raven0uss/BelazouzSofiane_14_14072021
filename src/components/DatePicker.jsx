@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDatePicker from "react-datepicker";
 import styled, { createGlobalStyle } from "styled-components";
+import PropTypes from "prop-types";
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -40,6 +41,16 @@ const DatePicker = ({ selected, onChange, label }) => {
       <DatePickerWrapperStyles />
     </DatePickerContainer>
   );
+};
+
+DatePicker.propTypes = {
+  selected: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  label: PropTypes.string,
+};
+
+DatePicker.defaultProps = {
+  label: "",
 };
 
 export default DatePicker;
