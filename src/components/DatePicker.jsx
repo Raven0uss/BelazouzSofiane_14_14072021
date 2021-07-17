@@ -16,7 +16,7 @@ const DatePickerContainer = styled.div`
 `;
 
 const DatePickerLabel = styled.label`
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 `;
 
 const DatePickerWrapperStyles = createGlobalStyle`
@@ -25,6 +25,11 @@ const DatePickerWrapperStyles = createGlobalStyle`
 
     > input {
       width: 100%;
+      border-style: solid;
+      border-width: 1px;
+      border-color: rgb(204, 204, 204);
+      border-radius: 4px;
+      padding: 2px 8px;
     }
  }
 `;

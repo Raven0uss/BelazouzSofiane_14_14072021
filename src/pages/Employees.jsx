@@ -17,6 +17,10 @@ const Container = styled.div`
   margin-top: 20px;
 `;
 
+const SearchContainer = styled.div`
+  margin-bottom: 24px;
+`;
+
 const searchFilter = (employee, search) => {
   if (search.length === 0) return true;
   const insensitiveSearch = search.toLowerCase();
@@ -46,11 +50,14 @@ const Employees = ({ employees }) => {
   return (
     <Container>
       <h1>Current Employees</h1>
-      <Input
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        placeholder={"Search..."}
-      />
+      <SearchContainer>
+        <Input
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder={"Search..."}
+        />
+      </SearchContainer>
+
       <Table
         columns={employeeColumns}
         dataSource={employees
@@ -61,7 +68,7 @@ const Employees = ({ employees }) => {
             key: index,
           }))
           .filter((employee) => searchFilter(employee, search))}
-        scroll={{ x: 180 }}
+        scroll={{ x: 600 }}
         pagination={{
           defaultPageSize: 10,
           showSizeChanger: true,

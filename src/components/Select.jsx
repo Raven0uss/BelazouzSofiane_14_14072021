@@ -15,7 +15,7 @@ const SelectContainer = styled.div`
 `;
 
 const SelectLabel = styled.label`
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 `;
 
 const Select = ({ label, options, value, onChange }) => {
