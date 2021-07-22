@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import MagicModal from "@raven0us/magic-react-modal";
@@ -14,58 +13,7 @@ import DatePicker from "../components/DatePicker";
 import Select from "../components/Select";
 import SaveButton from "../components/SaveButton";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 30px;
-`;
-
-const Form = styled.div`
-  display: flex;
-  flex-direction: column;
-  max-width: 450px;
-  width: 50%;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  align-items: center;
-
-  > div {
-    margin-top: 12px;
-  }
-`;
-
-const AddressFieldset = styled.fieldset`
-  margin-top: 10px;
-  width: 250px;
-  background-color: #00000010;
-  padding: 8px 20px;
-  border-radius: 5px;
-
-  > legend {
-    background-color: #ffffff;
-    padding: 0 12px;
-    border-radius: 5px;
-  }
-
-  > div  {
-    margin-top: 12px;
-  }
-
-  @media (max-width: 400px) {
-    width: 100%;
-    > div {
-      width: 90%;
-    }
-  }
-`;
-
-const SuccessMessage = styled.p`
-  text-align: center;
-  color: #4a934a;
-  font-weight: bold;
-`;
+import { Container, Form, AddressFieldset, SuccessMessage } from "./HomeStyle";
 
 const formValuesInitialState = {
   firstname: "",
@@ -93,7 +41,7 @@ const Home = ({ onAddEmployee }) => {
       }));
     };
 
-  const onSubmit = () => {
+  const handleSubmit = () => {
     onAddEmployee(formValues);
     setOpenModal(true);
   };
@@ -162,7 +110,11 @@ const Home = ({ onAddEmployee }) => {
           onChange={handleChange("department")}
         />
       </Form>
-      <SaveButton action={onSubmit} title="Save" disabled={saveIsDisabled} />
+      <SaveButton
+        action={handleSubmit}
+        title="Save"
+        disabled={saveIsDisabled}
+      />
       <MagicModal
         isOpen={openModal}
         setOpen={setOpenModal}

@@ -1,22 +1,9 @@
 import React from "react";
-import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import ReactSelect from "react-select";
 
-const SelectContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-
-  @media (max-width: 400px) {
-    width: 100%;
-  }
-`;
-
-const SelectLabel = styled.label`
-  margin-bottom: 6px;
-`;
+import { SelectContainer, SelectLabel } from "./SelectStyle";
 
 const Select = ({ label, options, value, onChange }) => {
   return (

@@ -2,24 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Table } from "antd";
-import styled from "styled-components";
 import moment from "moment";
 import PropTypes from "prop-types";
 
 import Input from "../components/Input";
 import { employeeColumns } from "../helpers/employeeTable";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin-top: 20px;
-`;
-
-const SearchContainer = styled.div`
-  margin-bottom: 24px;
-`;
+import { Container, SearchContainer } from "./EmployeesStyle";
 
 const searchFilter = (employee, search) => {
   if (search.length === 0) return true;

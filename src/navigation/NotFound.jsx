@@ -1,14 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 30px;
-`;
+import { Container } from "./NotFoundStyle";
 
 const NotFound = () => {
   return (

@@ -1,10 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import PropTypes from "prop-types";
 
-const Button = styled.button`
-  margin-top: 12px;
-`;
+import { Button } from "./SaveButtonStyle";
 
 const SaveButton = ({ disabled, title, action }) => {
   return (

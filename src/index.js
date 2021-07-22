@@ -4,10 +4,6 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import reducers from "./redux/reducers";
 
-import "./index.css";
-import "antd/lib/input/style/css";
-import "antd/lib/table/style/css";
-
 import App from "./App.jsx";
 
 const store = createStore(reducers);
